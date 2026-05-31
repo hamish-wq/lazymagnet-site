@@ -14,6 +14,7 @@ export const NAV = [
   { label: 'The Full System', href: '/ultimate' },
   { label: 'Industries', href: '/industries' },
   { label: 'Pricing', href: '/pricing' },
+  { label: 'About', href: '/about' },
 ];
 
 export const INDUSTRIES = [

@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { SITE, NAV, isActive } from '../lib/site';
+import ChatWidget from '../components/ChatWidget.astro';
 
 interface Props {
   title: string;
@@ -84,6 +85,8 @@ const orgSchema = {
     <main>
       <slot />
     </main>
+
+    <ChatWidget />
 
     <footer class="bg-lm-ink text-slate-300 mt-24">
       <div class="max-w-6xl mx-auto px-4 py-14 grid md:grid-cols-4 gap-10 text-sm">
