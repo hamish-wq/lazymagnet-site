@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://demo.lazymagnet.com/sitemap-index.xml
+Sitemap: https://new.lazymagnet.com/sitemap-index.xml

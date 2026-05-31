@@ -2,7 +2,7 @@
 
 export const SITE = {
   name: 'LazyMagnet',
-  domain: 'https://demo.lazymagnet.com',
+  domain: 'https://new.lazymagnet.com',
   phoneLabel: '0800 LAZYMAGNET',
   logo: 'https://assets.cdn.filesafe.space/ta7OhEhODTBhXhTYUNgF/media/63e1a3ffa4862067ee273ea3.png',
   bookUrl: '/get-started',

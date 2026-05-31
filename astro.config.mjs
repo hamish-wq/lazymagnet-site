@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://demo.lazymagnet.com',
+  site: 'https://new.lazymagnet.com',
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],
