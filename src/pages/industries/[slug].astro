@@ -5,6 +5,7 @@ import ContactForm from '../../components/ContactForm.astro';
 import FinalCTA from '../../components/FinalCTA.astro';
 import { SITE } from '../../lib/site';
 import { INDUSTRY_DATA } from '../../lib/industries-data';
+import { INDUSTRY_BODY } from '../../lib/industries-body';
 
 export function getStaticPaths() {
   return Object.values(INDUSTRY_DATA).map((ind) => ({ params: { slug: ind.slug } }));
@@ -12,6 +13,7 @@ export function getStaticPaths() {
 
 const { slug } = Astro.params;
 const ind = INDUSTRY_DATA[slug as string];
+const body = INDUSTRY_BODY[slug as string] ?? [];
 const canonical = `${SITE.domain}/industries/${ind.slug}`;
 
 const schemaJson = [
@@ -88,6 +90,19 @@ const schemaJson = [
       </div>
     </div>
   </section>
+
+  {body.length > 0 && (
+    <section class="bg-white pb-16 md:pb-24">
+      <div class="max-w-3xl mx-auto px-4 space-y-10">
+        {body.map((b) => (
+          <div>
+            <h2 class="text-2xl md:text-3xl mb-3">{b.heading}</h2>
+            <p class="text-lg text-lm-slate leading-relaxed">{b.text}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
 
   <ContactForm sourcePage={`industry-${ind.slug}`} eyebrow="Got a question for your situation?" heading="Ask us about your business" subhead="Tell us what you do and where. We will tell you straight whether we can help." />
   <FinalCTA heading={ind.ctaHeading} body={ind.ctaBody} />
