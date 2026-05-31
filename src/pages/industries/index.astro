@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Wave from '../../components/Wave.astro';
+import FinalCTA from '../../components/FinalCTA.astro';
+import { SITE } from '../../lib/site';
+import { INDUSTRY_DATA } from '../../lib/industries-data';
+
+const title = 'Industries We Work With | LazyMagnet';
+const description = 'LazyMagnet is tuned to how your industry actually wins customers: home services, health and wellness, professional services, e-commerce and franchise. Same system, strategy that fits your world.';
+const canonical = `${SITE.domain}/industries`;
+const list = Object.values(INDUSTRY_DATA);
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <section class="relative overflow-hidden bg-lm-ink">
+    <div class="absolute inset-0 opacity-40" style="background: radial-gradient(60% 80% at 50% 0%, #8E1491 0%, transparent 60%);"></div>
+    <div class="relative max-w-4xl mx-auto px-4 py-16 md:py-20 text-center">
+      <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-4">Industries</p>
+      <h1 class="text-4xl md:text-6xl font-black text-white leading-[1.05] mb-5">The system is the same. The strategy fits your world.</h1>
+      <p class="text-lg text-white/85 max-w-2xl mx-auto">How your customers search, decide and buy is different in every industry. We tune the approach to yours.</p>
+    </div>
+  </section>
+
+  <Wave from="#1A1024" to="#FFFFFF" />
+
+  <section class="bg-white py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-6">
+      {list.map((ind) => (
+        <a href={`/industries/${ind.slug}`} class="group bg-lm-purple-light rounded-3xl p-8 border border-purple-100 hover:border-lm-purple transition-all">
+          <h2 class="text-2xl mb-3 group-hover:text-lm-purple transition-colors">{ind.label}</h2>
+          <p class="text-lm-slate leading-relaxed mb-5">{ind.h1}</p>
+          <span class="text-lm-purple font-extrabold">See how it works →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <FinalCTA />
+</Layout>

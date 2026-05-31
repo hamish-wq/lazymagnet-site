@@ -1,0 +1,94 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Wave from '../../components/Wave.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import FinalCTA from '../../components/FinalCTA.astro';
+import { SITE } from '../../lib/site';
+import { INDUSTRY_DATA } from '../../lib/industries-data';
+
+export function getStaticPaths() {
+  return Object.values(INDUSTRY_DATA).map((ind) => ({ params: { slug: ind.slug } }));
+}
+
+const { slug } = Astro.params;
+const ind = INDUSTRY_DATA[slug as string];
+const canonical = `${SITE.domain}/industries/${ind.slug}`;
+
+const schemaJson = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: `LazyMagnet for ${ind.label}`,
+    provider: { '@id': `${SITE.domain}/#org` },
+    areaServed: ['NZ', 'AU', 'US'],
+    description: ind.metaDescription,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.domain },
+      { '@type': 'ListItem', position: 2, name: 'Industries', item: `${SITE.domain}/industries` },
+      { '@type': 'ListItem', position: 3, name: ind.label, item: canonical },
+    ],
+  },
+];
+---
+
+<Layout title={ind.metaTitle} description={ind.metaDescription} canonical={canonical} keywords={ind.keywords} schemaJson={schemaJson}>
+  <section class="relative overflow-hidden bg-lm-ink">
+    <div class="absolute inset-0 opacity-40" style="background: radial-gradient(60% 80% at 20% 0%, #8E1491 0%, transparent 60%), radial-gradient(50% 70% at 100% 100%, #FF7300 0%, transparent 55%);"></div>
+    <div class="relative max-w-5xl mx-auto px-4 py-16 md:py-24">
+      <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-4">{ind.eyebrow}</p>
+      <h1 class="text-4xl md:text-6xl font-black text-white leading-[1.05] mb-6 max-w-3xl">{ind.h1}</h1>
+      <p class="text-lg md:text-xl text-white/85 mb-8 leading-relaxed max-w-2xl">{ind.intro}</p>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href={SITE.bookUrl} class="btn-primary">Book a free demo</a>
+        <a href="/pricing" class="btn-ghost">See pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <Wave from="#1A1024" to="#F6E9F7" />
+
+  <!-- PROBLEMS -->
+  <section class="bg-lm-purple-light py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12 max-w-2xl mx-auto">
+        <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-2">Sound familiar?</p>
+        <h2 class="text-3xl md:text-4xl">Where the customers slip away</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-5">
+        {ind.problems.map((p) => (
+          <div class="bg-white rounded-2xl p-6 border border-purple-100">
+            <h3 class="text-lg mb-2">{p.t}</h3>
+            <p class="text-lm-slate leading-relaxed text-sm">{p.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Wave from="#F6E9F7" to="#FFFFFF" />
+
+  <!-- FIT -->
+  <section class="bg-white py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12 max-w-2xl mx-auto">
+        <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-2">The fix</p>
+        <h2 class="text-3xl md:text-4xl">{ind.fitHeading}</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-5">
+        {ind.fit.map((f) => (
+          <div class="bg-lm-purple-light rounded-2xl p-6 border border-purple-100">
+            <h3 class="text-lg mb-2">{f.t}</h3>
+            <p class="text-lm-slate leading-relaxed text-sm">{f.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ContactForm sourcePage={`industry-${ind.slug}`} eyebrow="Got a question for your situation?" heading="Ask us about your business" subhead="Tell us what you do and where. We will tell you straight whether we can help." />
+  <FinalCTA heading={ind.ctaHeading} body={ind.ctaBody} />
+</Layout>

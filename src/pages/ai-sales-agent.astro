@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Wave from '../components/Wave.astro';
+import TrustBand from '../components/TrustBand.astro';
+import PhoneDemo from '../components/PhoneDemo.astro';
+import ContactForm from '../components/ContactForm.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import FAQ from '../components/FAQ.astro';
+import { SITE } from '../lib/site';
+
+const title = 'AI Sales Agent | Reply to Every Lead in 15 Seconds, 24/7 | LazyMagnet';
+const description = 'The LazyMagnet AI Sales Agent responds to every lead in seconds, qualifies them, handles questions and books them into your calendar, around the clock. Built for you, trained on your business. From $197/mo.';
+const canonical = `${SITE.domain}/ai-sales-agent`;
+const keywords = 'AI sales agent, AI chatbot booking, lead response automation, speed to lead, missed call text back, 24/7 lead follow up, conversational booking, AI receptionist';
+
+const stats = [
+  { big: '15 sec', small: 'Average response' },
+  { big: '24/7', small: 'Never off the clock' },
+  { big: 'Every', small: 'Channel covered' },
+  { big: 'Books', small: 'Without calendar links' },
+];
+
+const faqs = [
+  { q: 'Is this just a chatbot?', a: 'No. A chatbot answers questions. The AI Sales Agent has a real conversation: it qualifies the lead, handles objections, and books them into your calendar. It is built to win the customer, not just deflect a query.' },
+  { q: 'What channels does it cover?', a: 'Website chat, contact forms, Facebook and Instagram messages and comments, and email as standard. SMS, WhatsApp and missed-call text-back are available too. Wherever your leads come from, it is there.' },
+  { q: 'Will it sound like a robot?', a: 'No. The tone is tuned to your brand, consultative and friendly rather than salesy. Most leads do not realise they are talking to an AI. When something genuinely needs you, it hands over cleanly.' },
+  { q: 'Do I lose control of conversations?', a: 'Never. You can jump into any conversation at any time from the dashboard or your phone. The AI handles the volume; you step in whenever you want to.' },
+  { q: 'What if it gets asked something it does not know?', a: 'It answers from the knowledge we build out of your business information. For anything genuinely outside that, it says so and offers to put the person through to you. It does not make things up.' },
+  { q: 'Could I not just hire someone?', a: 'A person works eight hours a day, takes weekends off, and costs a lot. The AI replies in seconds, never sleeps, and costs a fraction. For the first response and the booking, it is genuinely better. Your team then does what people are best at, winning the customer face to face.' },
+];
+
+const schemaJson = [
+  { '@context': 'https://schema.org', '@type': 'Service', name: 'AI Sales Agent', serviceType: 'Automated lead engagement, qualification and booking', provider: { '@id': `${SITE.domain}/#org` }, areaServed: ['NZ', 'AU', 'US'], description: 'A 24/7 AI agent that responds to leads in seconds across every channel, qualifies them and books meetings conversationally.' },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+
+<Layout title={title} description={description} canonical={canonical} keywords={keywords} schemaJson={schemaJson}>
+  <section class="relative overflow-hidden bg-lm-ink">
+    <div class="absolute inset-0 opacity-40" style="background: radial-gradient(55% 80% at 80% 0%, #8E1491 0%, transparent 60%), radial-gradient(50% 70% at 0% 100%, #FF7300 0%, transparent 55%);"></div>
+    <div class="relative max-w-6xl mx-auto px-4 py-16 md:py-24 grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-4">AI Sales Agent</p>
+        <h1 class="text-4xl md:text-6xl font-black text-white leading-[1.05] mb-6">
+          The lead never waits. Never goes cold.
+        </h1>
+        <p class="text-lg md:text-xl text-white/85 mb-8 leading-relaxed max-w-xl">
+          The moment someone enquires, your AI Sales Agent replies in seconds. It answers their questions, works out if they are a fit, and books them straight into your calendar. Day, night, weekend, it does not matter. We build it for you and train it on your business.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href={SITE.bookUrl} class="btn-primary">Book a free demo</a>
+          <a href="/pricing" class="btn-ghost">See pricing</a>
+        </div>
+      </div>
+      <div class="lg:pl-8"><PhoneDemo /></div>
+    </div>
+  </section>
+
+  <Wave from="#1A1024" to="#F6E9F7" />
+  <TrustBand stats={stats} />
+
+  <!-- WHY SPEED -->
+  <section class="bg-lm-purple-light py-16 md:py-24">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-2">Why seconds matter</p>
+      <h2 class="text-3xl md:text-4xl mb-5">The first business to reply usually wins</h2>
+      <p class="text-lg text-lm-slate leading-relaxed max-w-2xl mx-auto">
+        When someone fills in a form, they are often contacting two or three businesses at once. They go with whoever responds first and makes it easy. Most businesses take hours. Some never reply at all. Your AI agent replies in seconds, every time, and that is often the whole game.
+      </p>
+    </div>
+  </section>
+
+  <Wave from="#F6E9F7" to="#FFFFFF" />
+
+  <!-- WHAT IT DOES -->
+  <section class="bg-white py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12 max-w-2xl mx-auto">
+        <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-2">What it does</p>
+        <h2 class="text-3xl md:text-4xl">More than answering. Converting.</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-5">
+        {[
+          { t: 'Replies in seconds, on every channel', d: 'Website chat, forms, Facebook and Instagram, email and more. Wherever the lead shows up, it is already there.' },
+          { t: 'Qualifies as it talks', d: 'It asks the questions you would ask, so by the time you speak to someone, you already know they are worth your time.' },
+          { t: 'Books without calendar links', d: 'No clunky scheduling page. It offers real times in conversation: "Would Tuesday at 10 or Wednesday at 2 suit?" and locks it in.' },
+          { t: 'Catches your missed calls', d: 'A call goes unanswered, and within seconds the caller gets a text picking the conversation up. The revenue you used to lose to voicemail, recovered.' },
+          { t: 'Wakes up your old database', d: 'Past enquiries and customers who went cold get a gentle, personal nudge. When they reply, the agent takes over and books them. No new ad spend.' },
+          { t: 'Hands over when it should', d: 'You can take any conversation over at any moment. And anything outside its knowledge, it passes to you rather than guessing.' },
+        ].map((c) => (
+          <div class="bg-lm-purple-light rounded-2xl p-6 border border-purple-100">
+            <h3 class="text-lg mb-2">{c.t}</h3>
+            <p class="text-lm-slate leading-relaxed text-sm">{c.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- DONE FOR YOU -->
+  <section class="bg-white pb-16 md:pb-24">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="bg-gradient-to-br from-lm-purple to-lm-purple-dark rounded-3xl p-8 md:p-10 text-white text-center">
+        <h2 class="text-2xl md:text-3xl text-white mb-3">You do not build this. We do.</h2>
+        <p class="text-white/85 max-w-2xl mx-auto mb-6">
+          You tell us about your business, your services, your hours, the customers you want. We build the agent, set up the conversations and the booking logic, and train it on everything it needs to know. You get a working agent, not a toolkit.
+        </p>
+        <a href={SITE.bookUrl} class="btn-primary">Book a free demo</a>
+      </div>
+    </div>
+  </section>
+
+  <FAQ items={faqs} />
+  <ContactForm sourcePage="ai-sales-agent" eyebrow="Want to see it reply?" heading="Message us and watch" subhead="Send a message here. Notice how fast a reply comes back. That is the point." />
+  <FinalCTA heading="Put a 24/7 salesperson on every lead" body="Book a free demo and we will show you the agent responding, qualifying and booking, set up for your business." />
+</Layout>

@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Wave from '../components/Wave.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import FAQ from '../components/FAQ.astro';
+import { SITE } from '../lib/site';
+
+const title = 'Pricing | Start From $197/mo, No Lock-In | LazyMagnet';
+const description = 'Simple pricing for LazyMagnet. Start from $197/mo with a $197 one-off setup, billed from go-live. No lock-in, no cancellation fees. Clear upgrade paths as you grow.';
+const canonical = `${SITE.domain}/pricing`;
+const keywords = 'LazyMagnet pricing, AI ads pricing, AI sales agent cost, marketing automation pricing NZ';
+
+const starterIncludes = [
+  'AI Sales Agent, built and trained for you',
+  'AI Ads on one platform, self-service',
+  '1,000 AI messages a month included',
+  'One-on-one technical onboarding',
+  'A walkthrough of the ads platform',
+  'Your own personalised setup site and videos',
+  'Real-outcome conversion tracking',
+];
+
+const faqs = [
+  { q: 'When does the monthly fee start?', a: 'From the day you go live, not the day you sign up. You are not paying while we build.' },
+  { q: 'Is there really no lock-in?', a: 'Correct. Month to month after setup. No fixed term, no cancellation fees. We earn the next month by making the last one worth it.' },
+  { q: 'What happens if I go over 1,000 messages?', a: 'Extra messages are charged at a small per-message rate, or you move up a plan, whichever suits. We will flag it well before it becomes a surprise.' },
+  { q: 'What is the setup fee for?', a: 'Building and training your AI Sales Agent, setting up your ads, configuring your tracking, and producing your personalised onboarding materials. On Starter it is a one-off $197.' },
+  { q: 'How do I move up a plan?', a: 'Whenever you are ready, more ad platforms, more messages, Voice, or deeper customisation. We size the next step to where your business actually is.' },
+  { q: 'Do you add a margin to my ad spend?', a: 'No. Your ad budget goes straight to the platforms on your own accounts. We do not sit in the middle of it.' },
+];
+
+const schemaJson = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+---
+
+<Layout title={title} description={description} canonical={canonical} keywords={keywords} schemaJson={schemaJson}>
+  <section class="relative overflow-hidden bg-lm-ink">
+    <div class="absolute inset-0 opacity-40" style="background: radial-gradient(60% 80% at 50% 0%, #8E1491 0%, transparent 60%);"></div>
+    <div class="relative max-w-4xl mx-auto px-4 py-16 md:py-20 text-center">
+      <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-4">Pricing</p>
+      <h1 class="text-4xl md:text-6xl font-black text-white leading-[1.05] mb-5">Start small. Scale when it is working.</h1>
+      <p class="text-lg text-white/85 max-w-2xl mx-auto">No lock-in. No cancellation fees. The monthly fee starts the day you go live, not the day you sign up.</p>
+    </div>
+  </section>
+
+  <Wave from="#1A1024" to="#F6E9F7" />
+
+  <!-- PLANS -->
+  <section class="bg-lm-purple-light py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid lg:grid-cols-3 gap-6 items-start">
+
+        <!-- STARTER (hero) -->
+        <div class="bg-white rounded-3xl border-2 border-lm-orange p-8 shadow-xl relative lg:scale-[1.03]">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-lm-orange text-white text-xs font-black uppercase tracking-wide px-4 py-1 rounded-full">Most popular</span>
+          <h2 class="text-2xl mb-1">Starter</h2>
+          <p class="text-sm text-lm-slate mb-4">Everything you need to start getting and booking leads.</p>
+          <div class="mb-1"><span class="text-5xl font-black text-lm-ink">$197</span><span class="text-lm-slate font-semibold">/mo</span></div>
+          <p class="text-sm text-lm-slate mb-6">+ $197 one-off setup. Billed from go-live.</p>
+          <a href={SITE.bookUrl} class="btn-primary w-full mb-6">Get started</a>
+          <ul class="space-y-3">
+            {starterIncludes.map((i) => (
+              <li class="flex gap-3 text-sm text-lm-ink"><span class="text-lm-orange font-black shrink-0">✓</span><span>{i}</span></li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- GROWTH -->
+        <div class="bg-white rounded-3xl border border-purple-100 p-8">
+          <h2 class="text-2xl mb-1">Growth</h2>
+          <p class="text-sm text-lm-slate mb-4">For businesses ready to scale across more channels.</p>
+          <div class="mb-1"><span class="text-3xl font-black text-lm-ink">Tailored</span></div>
+          <p class="text-sm text-lm-slate mb-6">Priced to where your business is.</p>
+          <a href={SITE.bookUrl} class="btn-purple w-full mb-6">Book a call</a>
+          <p class="text-sm font-bold text-lm-ink mb-3">Everything in Starter, plus:</p>
+          <ul class="space-y-3">
+            {['AI Ads across multiple platforms', 'Higher monthly message allowance', 'Deeper agent customisation', 'Voice AI available', 'Priority support'].map((i) => (
+              <li class="flex gap-3 text-sm text-lm-ink"><span class="text-lm-purple font-black shrink-0">✓</span><span>{i}</span></li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- ULTIMATE -->
+        <div class="bg-lm-ink text-white rounded-3xl p-8">
+          <h2 class="text-2xl mb-1 text-white">Ultimate</h2>
+          <p class="text-sm text-white/70 mb-4">The full system, fully managed and bespoke.</p>
+          <div class="mb-1"><span class="text-3xl font-black text-white">Tailored</span></div>
+          <p class="text-sm text-white/70 mb-6">For multi-location and high-volume.</p>
+          <a href={SITE.bookUrl} class="btn-primary w-full mb-6">Book a call</a>
+          <p class="text-sm font-bold text-white mb-3">Everything in Growth, plus:</p>
+          <ul class="space-y-3">
+            {['Bespoke agent build and flows', 'Voice AI fully integrated', 'Database reactivation campaigns', 'Multi-location and franchise setup', 'Priority support'].map((i) => (
+              <li class="flex gap-3 text-sm text-white/90"><span class="text-lm-orange font-black shrink-0">✓</span><span>{i}</span></li>
+            ))}
+          </ul>
+        </div>
+
+      </div>
+      <p class="text-center text-sm text-lm-slate mt-8 max-w-2xl mx-auto">Ad budget is separate and goes straight to the platforms on your own accounts. We never mark it up.</p>
+    </div>
+  </section>
+
+  <FAQ items={faqs} heading="Pricing questions" />
+  <FinalCTA heading="Not sure which plan fits?" body="Book a free demo. We will look at your business and tell you honestly where to start, even if that is the smallest plan." />
+</Layout>

@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE } from '../lib/site';
+const title = 'Terms and Conditions | LazyMagnet';
+const description = 'The terms and conditions for using LazyMagnet services.';
+const canonical = `${SITE.domain}/terms`;
+---
+<Layout title={title} description={description} canonical={canonical}>
+  <section class="bg-white py-16 md:py-20">
+    <div class="max-w-3xl mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl font-black mb-3">Terms and Conditions</h1>
+      <p class="text-lm-slate mb-8">This is placeholder copy for the demo. The live terms will carry over from the current LazyMagnet site, reviewed at cutover.</p>
+      <div class="space-y-5 text-lm-slate leading-relaxed">
+        <p>These terms govern your use of the LazyMagnet website and services.</p>
+        <h2 class="text-xl text-lm-ink font-bold pt-2">Services</h2>
+        <p>LazyMagnet provides AI-powered advertising and lead-engagement services. Plans are month to month after setup, with no fixed term and no cancellation fees.</p>
+        <h2 class="text-xl text-lm-ink font-bold pt-2">Billing</h2>
+        <p>The monthly fee begins from the day your system goes live. Ad budget is separate and paid directly to the advertising platforms on your own accounts.</p>
+        <h2 class="text-xl text-lm-ink font-bold pt-2">Your responsibilities</h2>
+        <p>You agree to provide accurate business information and to use the services lawfully.</p>
+        <p class="pt-4 text-sm">For the current full terms, please contact us. This page will be finalised before launch.</p>
+      </div>
+    </div>
+  </section>
+</Layout>

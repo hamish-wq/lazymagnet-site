@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  /* LazyMagnet brand */
+  --color-lm-purple: #8E1491;
+  --color-lm-purple-dark: #6E0F70;
+  --color-lm-purple-light: #F6E9F7;
+  --color-lm-orange: #FF7300;
+  --color-lm-orange-dark: #E56700;
+  --color-lm-ink: #1A1024;
+  --color-lm-slate: #4A4055;
+
+  --font-sans: "Nunito", system-ui, sans-serif;
+
+  --radius-pill: 50px;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-lm-ink);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 2rem;
+    background: var(--color-lm-orange);
+    color: white;
+    font-weight: 800;
+    border-radius: var(--radius-pill);
+    border: 2px solid var(--color-lm-orange);
+    transition: all 0.2s;
+    font-size: 1rem;
+    line-height: 1;
+  }
+  .btn-primary:hover {
+    background: var(--color-lm-orange-dark);
+    border-color: var(--color-lm-orange-dark);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 2rem;
+    background: transparent;
+    color: white;
+    font-weight: 800;
+    border-radius: var(--radius-pill);
+    border: 2px solid rgba(255,255,255,0.35);
+    transition: all 0.2s;
+    font-size: 1rem;
+    line-height: 1;
+  }
+  .btn-ghost:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.6);
+  }
+
+  .btn-purple {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 2rem;
+    background: var(--color-lm-purple);
+    color: white;
+    font-weight: 800;
+    border-radius: var(--radius-pill);
+    border: 2px solid var(--color-lm-purple);
+    transition: all 0.2s;
+    font-size: 1rem;
+    line-height: 1;
+  }
+  .btn-purple:hover {
+    background: var(--color-lm-purple-dark);
+    border-color: var(--color-lm-purple-dark);
+    transform: translateY(-1px);
+  }
+}

@@ -1,0 +1,21 @@
+---
+import { SITE } from '../lib/site';
+interface Props {
+  heading?: string;
+  body?: string;
+}
+const {
+  heading = 'See it working on your business',
+  body = "Book a free 20-minute demo. We'll show you exactly how the system would generate and convert leads for your business. No pressure, no jargon.",
+} = Astro.props;
+---
+<section class="bg-lm-purple text-white">
+  <div class="max-w-4xl mx-auto px-4 py-16 text-center">
+    <h2 class="text-3xl md:text-5xl mb-5 text-white">{heading}</h2>
+    <p class="text-lg md:text-xl mb-8 text-white/85 max-w-2xl mx-auto leading-relaxed">{body}</p>
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <a href={SITE.bookUrl} class="btn-primary">Book a free demo</a>
+      <a href="/pricing" class="btn-ghost">See pricing</a>
+    </div>
+  </div>
+</section>

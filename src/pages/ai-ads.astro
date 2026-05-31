@@ -1,0 +1,132 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Wave from '../components/Wave.astro';
+import TrustBand from '../components/TrustBand.astro';
+import ContactForm from '../components/ContactForm.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import FAQ from '../components/FAQ.astro';
+import { SITE } from '../lib/site';
+
+const title = 'AI Ads | Create, Launch and Optimise Ads Automatically | LazyMagnet';
+const description = 'AI Ads creates your ad images, video and copy, publishes across Google, Facebook, Instagram and more, then tests and shifts budget to what works. You stay in control. We set you up and train you. From $197/mo.';
+const canonical = `${SITE.domain}/ai-ads`;
+const keywords = 'AI ads, automated advertising, AI ad creation, Google ads automation, Facebook ads AI, ad optimisation, conversions API, lead generation ads NZ';
+
+const stats = [
+  { big: '10+', small: 'Ad platforms' },
+  { big: 'Auto', small: 'Created from a brief' },
+  { big: 'Auto', small: 'Budget shifting' },
+  { big: 'CAPI', small: 'Real-outcome tracking' },
+];
+
+const faqs = [
+  { q: 'Do I run the ads, or do you?', a: 'You run them, with the AI doing the heavy lifting. We set the system up, sit with you through your first campaigns, and show you exactly what to look at. After that it is yours, and we are on hand whenever you need us.' },
+  { q: 'Where does my ad budget go?', a: 'Straight to the platforms, Google or Facebook, on your own ad accounts. We do not mark it up or sit in the middle of it.' },
+  { q: 'How much should I spend?', a: 'Most businesses start at $30 to $50 a day per campaign. You can start lower, but more budget gives the AI more data, which means it finds what works faster.' },
+  { q: 'I have tried ads and they did not work. Why is this different?', a: 'Two reasons. The AI tests far more variations than a person ever would and puts money behind the winners automatically. And we send the ad platforms your real outcomes, booked jobs and sales, not just clicks, so they optimise toward customers instead of cheap traffic.' },
+  { q: 'What do I need to give it?', a: 'Who your best customer is, what problem you solve for them, your offer, and a handful of real photos or videos. The clearer your inputs, the faster the AI finds what works.' },
+  { q: 'What about the privacy changes that broke ad tracking?', a: 'That is exactly what our real-outcome tracking fixes. Apple\'s changes wiped out a big chunk of the signal ads used to rely on. We restore it by sending the platforms the actual conversions from your CRM. Most agencies skip this. We set it up by default.' },
+];
+
+const schemaJson = [
+  { '@context': 'https://schema.org', '@type': 'Service', name: 'AI Ads', serviceType: 'Automated advertising creation and optimisation', provider: { '@id': `${SITE.domain}/#org` }, areaServed: ['NZ', 'AU', 'US'], description: 'AI-created and optimised advertising across 10+ platforms with real-outcome conversion tracking.' },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+
+<Layout title={title} description={description} canonical={canonical} keywords={keywords} schemaJson={schemaJson}>
+  <section class="relative overflow-hidden bg-lm-ink">
+    <div class="absolute inset-0 opacity-40" style="background: radial-gradient(60% 80% at 15% 0%, #8E1491 0%, transparent 60%), radial-gradient(50% 70% at 100% 100%, #FF7300 0%, transparent 55%);"></div>
+    <div class="relative max-w-5xl mx-auto px-4 py-16 md:py-24 text-center">
+      <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-4">AI Ads</p>
+      <h1 class="text-4xl md:text-6xl font-black text-white leading-[1.05] mb-6 max-w-3xl mx-auto">
+        Ads that create, launch and improve themselves
+      </h1>
+      <p class="text-lg md:text-xl text-white/85 mb-8 leading-relaxed max-w-2xl mx-auto">
+        Describe your customer and your offer. The AI builds the ads, publishes them across Google, Facebook, Instagram and more, then tests and shifts your budget to whatever is bringing in the best leads. You stay in full control.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href={SITE.bookUrl} class="btn-primary">Book a free demo</a>
+        <a href="/pricing" class="btn-ghost">See pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <Wave from="#1A1024" to="#F6E9F7" />
+  <TrustBand stats={stats} />
+
+  <!-- WHAT IT DOES -->
+  <section class="bg-lm-purple-light py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12 max-w-2xl mx-auto">
+        <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-2">What it does</p>
+        <h2 class="text-3xl md:text-4xl">The hard parts of advertising, handled</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-5">
+        {[
+          { t: 'Creates the ads', d: 'Images, short video and copy, generated from a simple brief. Turn a product photo into a finished ad. Edit anything before it goes live.' },
+          { t: 'Publishes everywhere', d: 'Google, Facebook, Instagram, YouTube, TikTok and more, from one place. No juggling ten dashboards.' },
+          { t: 'Tests and optimises', d: 'Runs variations, learns what your audience responds to, and moves budget to the winners automatically, day and night.' },
+          { t: 'Targets the right people', d: 'The AI reads your offer and finds the people most likely to buy, then tightens targeting as it learns.' },
+          { t: 'Optimises on real outcomes', d: 'We send the platforms your actual booked jobs and sales, not just clicks, so they chase customers, not cheap traffic.' },
+          { t: 'Keeps you in control', d: 'Nothing is a black box. Review the numbers weekly, refresh creative when you want, scale up what is working.' },
+        ].map((c) => (
+          <div class="bg-white rounded-2xl p-6 border border-purple-100">
+            <h3 class="text-lg mb-2">{c.t}</h3>
+            <p class="text-lm-slate leading-relaxed text-sm">{c.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Wave from="#F6E9F7" to="#FFFFFF" />
+
+  <!-- DIFFERENTIATOR: CAPI -->
+  <section class="bg-white py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-2">The part most agencies skip</p>
+        <h2 class="text-3xl md:text-4xl mb-5">We optimise toward customers, not clicks</h2>
+        <p class="text-lg text-lm-slate leading-relaxed mb-4">
+          Apple's privacy changes wiped out around 30% of the signal ads used to get from web tracking. If you are still optimising on clicks, you are working off broken data.
+        </p>
+        <p class="text-lm-slate leading-relaxed">
+          We send the ad platforms the outcomes that actually matter, the booked meeting, the purchase, the signup, straight from your CRM. The AI then learns to find more of the people who become real customers. It is standard with every account, not an upsell.
+        </p>
+      </div>
+      <div class="bg-lm-purple-light rounded-3xl p-8 border border-purple-100">
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">❌</span>
+            <div><p class="font-bold text-lm-ink">Most setups optimise on:</p><p class="text-sm text-lm-slate">whoever clicks the cheapest</p></div>
+          </div>
+          <div class="border-t border-purple-200"></div>
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">✅</span>
+            <div><p class="font-bold text-lm-ink">LazyMagnet optimises on:</p><p class="text-sm text-lm-slate">who actually books and buys</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU PROVIDE -->
+  <section class="bg-white pb-16 md:pb-24">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="bg-lm-ink rounded-3xl p-8 md:p-10 text-white">
+        <h2 class="text-2xl md:text-3xl text-white mb-3">The AI can only work with what you give it</h2>
+        <p class="text-white/80 mb-6">Get these right and the AI finds what works fast. We help you nail them in your onboarding session.</p>
+        <div class="grid sm:grid-cols-3 gap-4">
+          <div class="bg-white/5 rounded-2xl p-5"><p class="font-bold text-white mb-1">Your best customer</p><p class="text-sm text-white/70">Not everyone. The one you want more of.</p></div>
+          <div class="bg-white/5 rounded-2xl p-5"><p class="font-bold text-white mb-1">The problem you fix</p><p class="text-sm text-white/70">The specific thing they worry about right now.</p></div>
+          <div class="bg-white/5 rounded-2xl p-5"><p class="font-bold text-white mb-1">A few real photos</p><p class="text-sm text-white/70">Real beats stock almost every time.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQ items={faqs} />
+  <ContactForm sourcePage="ai-ads" eyebrow="Curious if ads would work for you?" heading="Ask us straight" subhead="Tell us what you sell and where. We will tell you honestly whether ads are the right move." />
+  <FinalCTA heading="See AI Ads built for your business" body="Book a free demo and we will show you what your ads could look like, where they would run, and what to expect." />
+</Layout>

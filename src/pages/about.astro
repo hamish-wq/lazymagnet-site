@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Wave from '../components/Wave.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import { SITE } from '../lib/site';
+
+const title = 'About LazyMagnet | Marketing Systems That Run in the Background';
+const description = 'LazyMagnet builds AI customer-acquisition systems for small and medium businesses, founded on the same systems thinking that built Naked Bus into a $15M business.';
+const canonical = `${SITE.domain}/about`;
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <section class="relative overflow-hidden bg-lm-ink">
+    <div class="absolute inset-0 opacity-40" style="background: radial-gradient(60% 80% at 50% 0%, #8E1491 0%, transparent 60%);"></div>
+    <div class="relative max-w-3xl mx-auto px-4 py-16 md:py-20 text-center">
+      <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-4">About</p>
+      <h1 class="text-4xl md:text-6xl font-black text-white leading-[1.05] mb-5">Growth should run in the background</h1>
+      <p class="text-lg text-white/85 max-w-2xl mx-auto">We build the marketing and sales engine so you can get on with running the business.</p>
+    </div>
+  </section>
+
+  <Wave from="#1A1024" to="#FFFFFF" />
+
+  <section class="bg-white py-16 md:py-20">
+    <div class="max-w-3xl mx-auto px-4 prose-lg space-y-6 text-lm-slate leading-relaxed">
+      <p class="text-xl text-lm-ink font-semibold">Most small businesses grow on referrals, word of mouth and hope. It works, until it does not.</p>
+      <p>When you need more customers, you do not have a reliable way to get them. When a lead does come in, someone has to drop what they are doing, follow up fast, qualify them and book them. Usually that someone is you. So leads slip through the cracks, after hours, at weekends, whenever things get busy.</p>
+      <p>LazyMagnet fixes that with systems instead of effort. AI that brings leads in, responds to every one in seconds, qualifies them and books them, around the clock. You show up to warm, ready customers instead of chasing cold ones.</p>
+      <h2 class="text-2xl text-lm-ink pt-4">The thinking behind it</h2>
+      <p>LazyMagnet was founded by Hamish Nuttall, who previously co-founded Naked Bus, a business that moved 750,000 passengers a year and grew to 40% of the New Zealand market. Naked Bus was never really about running buses. It was about the automated marketing and sales engine humming away in the background, filling seats while the team focused on the business.</p>
+      <p>LazyMagnet applies that same systems thinking to small and medium businesses. The best growth is not the result of working harder on marketing. It is the result of building a system that does the work for you, and then letting it run.</p>
+    </div>
+  </section>
+
+  <FinalCTA />
+</Layout>

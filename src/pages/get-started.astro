@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Wave from '../components/Wave.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { SITE } from '../lib/site';
+
+const title = 'Book a Free Demo | LazyMagnet';
+const description = 'Book a free 20-minute demo of LazyMagnet. See exactly how AI Ads and the AI Sales Agent would generate and convert leads for your business. No pressure, no jargon.';
+const canonical = `${SITE.domain}/get-started`;
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <section class="relative overflow-hidden bg-lm-ink">
+    <div class="absolute inset-0 opacity-40" style="background: radial-gradient(60% 80% at 50% 0%, #8E1491 0%, transparent 60%), radial-gradient(50% 60% at 50% 120%, #FF7300 0%, transparent 55%);"></div>
+    <div class="relative max-w-3xl mx-auto px-4 py-16 md:py-20 text-center">
+      <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-4">Book a free demo</p>
+      <h1 class="text-4xl md:text-6xl font-black text-white leading-[1.05] mb-5">See it working on your business</h1>
+      <p class="text-lg text-white/85 max-w-2xl mx-auto">Twenty minutes. We will show you how the system would generate and convert leads for your business, and tell you honestly whether it is the right move.</p>
+    </div>
+  </section>
+
+  <Wave from="#1A1024" to="#F6E9F7" />
+
+  <section class="bg-lm-purple-light py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 grid md:grid-cols-3 gap-5 mb-12">
+      {[
+        { n: '1', t: 'A quick chat', d: 'We learn what you sell, who you want more of, and where leads come from today.' },
+        { n: '2', t: 'See it live', d: 'We show the AI responding, qualifying and booking, set up for a business like yours.' },
+        { n: '3', t: 'An honest answer', d: 'If it is a fit, we tell you where to start. If it is not, we tell you that too.' },
+      ].map((s) => (
+        <div class="bg-white rounded-2xl p-6 border border-purple-100">
+          <div class="w-9 h-9 rounded-full bg-lm-orange text-white font-black flex items-center justify-center mb-3">{s.n}</div>
+          <h3 class="text-lg mb-1.5">{s.t}</h3>
+          <p class="text-sm text-lm-slate leading-relaxed">{s.d}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <ContactForm sourcePage="get-started" eyebrow="Book your demo" heading="Tell us a little about your business" subhead="Fill this in and we will be in touch to lock in a time. Usually within the hour." />
+</Layout>

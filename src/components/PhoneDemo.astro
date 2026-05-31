@@ -1,0 +1,51 @@
+---
+// A self-contained phone mockup showing the AI Sales Agent booking a lead.
+// The product demonstrating itself, no image asset required.
+interface Props {
+  messages?: { from: 'lead' | 'ai'; text: string }[];
+  caption?: string;
+}
+const {
+  messages = [
+    { from: 'lead', text: 'Hi, do you do hot water cylinder replacements? Mine just burst 😩' },
+    { from: 'ai', text: "Oh no, yes we do same-day emergency replacements. Are you in the Auckland area? I can get someone out to you today." },
+    { from: 'lead', text: 'Yes, Mt Eden. How soon?' },
+    { from: 'ai', text: 'We have a plumber free at 2pm or 4:30pm today. Which suits you better?' },
+    { from: 'lead', text: '2pm please' },
+    { from: 'ai', text: "Done, you're booked for 2pm. I've texted you the details and our plumber's name. Anything else I can sort?" },
+  ],
+  caption = 'Responds in seconds. Books while you sleep.',
+} = Astro.props;
+---
+<div class="relative mx-auto w-full max-w-[320px]">
+  <div class="bg-lm-ink rounded-[2.5rem] p-3 shadow-2xl ring-1 ring-white/10">
+    <div class="bg-white rounded-[2rem] overflow-hidden">
+      <!-- phone top bar -->
+      <div class="bg-lm-purple text-white px-4 py-3 flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center font-black text-sm">AI</div>
+        <div>
+          <p class="font-bold text-sm leading-tight">Your business</p>
+          <p class="text-[11px] text-white/70 leading-tight">● Online, replies instantly</p>
+        </div>
+      </div>
+      <!-- messages -->
+      <div class="px-3 py-4 space-y-2.5 bg-slate-50 min-h-[420px]">
+        {messages.map((m) => (
+          <div class:list={['flex', m.from === 'ai' ? 'justify-start' : 'justify-end']}>
+            <div
+              class:list={[
+                'max-w-[80%] px-3.5 py-2 rounded-2xl text-[13px] leading-snug',
+                m.from === 'ai'
+                  ? 'bg-white text-lm-ink rounded-bl-sm shadow-sm'
+                  : 'bg-lm-orange text-white rounded-br-sm',
+              ]}
+            >
+              {m.text}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+  <p class="text-center text-sm text-white/70 mt-4 font-semibold">{caption}</p>
+</div>

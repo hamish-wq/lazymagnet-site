@@ -1,0 +1,111 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Wave from '../components/Wave.astro';
+import ContactForm from '../components/ContactForm.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import FAQ from '../components/FAQ.astro';
+import { SITE } from '../lib/site';
+
+const title = 'The Full System | AI Ads + AI Sales Agent, Working Together | LazyMagnet';
+const description = 'Generate leads with AI Ads and convert them with a 24/7 AI Sales Agent, working as one system. From ad click to booked meeting with no one lifting a finger. See how the LazyMagnet full system works.';
+const canonical = `${SITE.domain}/ultimate`;
+const keywords = 'lead generation system, AI marketing system, ads and follow up, automated sales pipeline, end to end lead generation NZ';
+
+const faqs = [
+  { q: 'Do I have to take the whole system?', a: 'No. Plenty of clients start with one half, ads or the agent, and add the other when they are ready. The two simply work better together: the ads bring leads in, the agent makes sure none of them slip away.' },
+  { q: 'What is database reactivation?', a: 'Every business has a list of past enquiries and customers who never converted or drifted away. We send them a short, personal message, and when they reply the AI agent picks up and books them. It is some of the cheapest revenue you will ever find, because the leads are already warm.' },
+  { q: 'How fast can the whole system be live?', a: 'Around 10 working days from sign-up: a strategy session, the technical setup, training the AI on your business, testing, then go-live.' },
+  { q: 'What do you need from me?', a: 'A short strategy session to understand your business, your services and the customers you want, plus access to your ad accounts and a few real photos or videos. We handle the build.' },
+];
+
+const schemaJson = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+---
+
+<Layout title={title} description={description} canonical={canonical} keywords={keywords} schemaJson={schemaJson}>
+  <section class="relative overflow-hidden bg-lm-ink">
+    <div class="absolute inset-0 opacity-40" style="background: radial-gradient(60% 80% at 50% 0%, #8E1491 0%, transparent 60%), radial-gradient(60% 70% at 50% 120%, #FF7300 0%, transparent 55%);"></div>
+    <div class="relative max-w-5xl mx-auto px-4 py-16 md:py-24 text-center">
+      <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-4">The full system</p>
+      <h1 class="text-4xl md:text-6xl font-black text-white leading-[1.05] mb-6 max-w-3xl mx-auto">
+        From ad click to booked meeting. No one lifts a finger.
+      </h1>
+      <p class="text-lg md:text-xl text-white/85 mb-8 leading-relaxed max-w-2xl mx-auto">
+        AI Ads bring the leads in. The AI Sales Agent catches every one, qualifies them and books them. Put together, they turn a stream of strangers into a calendar full of warm, ready customers.
+      </p>
+      <a href={SITE.bookUrl} class="btn-primary">Book a free demo</a>
+    </div>
+  </section>
+
+  <Wave from="#1A1024" to="#FFFFFF" />
+
+  <!-- THE FLOW -->
+  <section class="bg-white py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-2">How it flows</p>
+        <h2 class="text-3xl md:text-4xl">One system, four steps, zero gaps</h2>
+      </div>
+      <div class="space-y-4">
+        {[
+          { n: '1', t: 'The ad does its job', d: 'AI Ads find people who fit your best customer and give them a reason to raise their hand. The goal is not a sale yet, just a hand in the air.' },
+          { n: '2', t: 'The agent pounces', d: 'The instant a lead comes in, the AI Sales Agent replies, in seconds, before they have moved on to a competitor.' },
+          { n: '3', t: 'The conversation does the work', d: 'It answers questions, qualifies, handles hesitation, and offers real times to book. All in a natural back-and-forth.' },
+          { n: '4', t: 'You show up to a warm call', d: 'No chasing, no cold leads. The person on the other end already knows you and chose a time.' },
+        ].map((s) => (
+          <div class="flex gap-5 items-start bg-lm-purple-light rounded-2xl p-6 border border-purple-100">
+            <div class="w-11 h-11 rounded-full bg-lm-purple text-white font-black flex items-center justify-center shrink-0 text-lg">{s.n}</div>
+            <div>
+              <h3 class="text-xl mb-1.5">{s.t}</h3>
+              <p class="text-lm-slate leading-relaxed">{s.d}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Wave from="#FFFFFF" to="#F6E9F7" />
+
+  <!-- USE CASES -->
+  <section class="bg-lm-purple-light py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12 max-w-2xl mx-auto">
+        <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-2">Where it earns its keep</p>
+        <h2 class="text-3xl md:text-4xl">Five ways the system makes you money</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {[
+          { t: 'New leads from ads', d: 'The classic. Ad, click, instant reply, booked. Before the competition has even seen the enquiry.' },
+          { t: 'Missed-call text-back', d: 'A call you could not answer turns into a text conversation in seconds. Most businesses lose 20 to 30% of revenue to missed calls. This claws it back.' },
+          { t: 'Database reactivation', d: 'Old enquiries and lapsed customers, gently re-opened. The agent books the ones who bite. No ad spend required.' },
+          { t: 'After-hours cover', d: 'A 9pm enquiry gets the same fast, professional response as a 9am one. You wake up to booked meetings.' },
+          { t: 'Qualifying out time-wasters', d: 'The agent filters for fit before anything hits your calendar, so you only spend time on real prospects.' },
+          { t: 'Steady pipeline in quiet spells', d: 'No more lurching between flat out and dead quiet. The system keeps leads flowing and followed up.' },
+        ].map((c) => (
+          <div class="bg-white rounded-2xl p-6 border border-purple-100">
+            <h3 class="text-lg mb-2">{c.t}</h3>
+            <p class="text-lm-slate leading-relaxed text-sm">{c.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Wave from="#F6E9F7" to="#1A1024" />
+
+  <!-- CASE STUDY -->
+  <section class="bg-lm-ink text-white py-16 md:py-24">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-2">Full system in action</p>
+      <h2 class="text-3xl md:text-4xl text-white mb-6">$100k in new orders in 18 days</h2>
+      <p class="text-lg text-white/80 leading-relaxed max-w-2xl mx-auto mb-8">
+        A home renovation business put the full system to work: AI Ads bringing in enquiries, the AI Sales Agent responding and booking around the clock. The result was 50% more sales appointments, $100k in new orders inside 18 days, and admin time cut by a third.
+      </p>
+      <a href={SITE.bookUrl} class="btn-primary">See what it could do for you</a>
+    </div>
+  </section>
+
+  <FAQ items={faqs} />
+  <ContactForm sourcePage="ultimate" />
+  <FinalCTA heading="See the whole system, end to end" body="Book a free demo. We will map the flow for your business, from the ad your customer sees to the meeting in your calendar." />
+</Layout>

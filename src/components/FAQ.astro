@@ -1,0 +1,26 @@
+---
+interface Props {
+  items: { q: string; a: string }[];
+  heading?: string;
+}
+const { items, heading = 'Questions, answered' } = Astro.props;
+---
+<section class="bg-white py-16 md:py-20">
+  <div class="max-w-3xl mx-auto px-4">
+    <div class="text-center mb-10">
+      <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-2">FAQs</p>
+      <h2 class="text-3xl md:text-4xl">{heading}</h2>
+    </div>
+    <div class="space-y-3">
+      {items.map((f) => (
+        <details class="bg-lm-purple-light rounded-2xl border border-purple-100 group">
+          <summary class="cursor-pointer px-6 py-5 font-bold text-lm-ink list-none flex justify-between items-center gap-4">
+            <span>{f.q}</span>
+            <span class="text-lm-orange group-open:rotate-45 transition-transform text-3xl font-light leading-none shrink-0">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-lm-slate leading-relaxed" set:html={f.a}></div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

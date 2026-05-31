@@ -1,0 +1,16 @@
+---
+interface Props {
+  stats: { big: string; small: string }[];
+}
+const { stats } = Astro.props;
+---
+<section class="bg-lm-purple-light py-8 border-y border-purple-100">
+  <div class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+    {stats.map((s) => (
+      <div>
+        <p class="text-3xl md:text-4xl font-black text-lm-purple">{s.big}</p>
+        <p class="text-sm text-lm-slate mt-1">{s.small}</p>
+      </div>
+    ))}
+  </div>
+</section>

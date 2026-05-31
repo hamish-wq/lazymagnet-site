@@ -1,0 +1,219 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Wave from '../components/Wave.astro';
+import TrustBand from '../components/TrustBand.astro';
+import PhoneDemo from '../components/PhoneDemo.astro';
+import ContactForm from '../components/ContactForm.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import FAQ from '../components/FAQ.astro';
+import { SITE, INDUSTRIES } from '../lib/site';
+
+const title = 'LazyMagnet | Get More Customers with AI Ads + a 24/7 AI Sales Agent';
+const description = 'LazyMagnet generates leads with AI Ads and responds to every one in seconds with a 24/7 AI Sales Agent that qualifies and books them automatically. For NZ and US small businesses. From $197/mo, no lock-in.';
+const canonical = `${SITE.domain}/`;
+const keywords = 'AI ads, AI sales agent, lead generation, automated marketing, small business marketing NZ, AI lead follow up, missed call text back, speed to lead';
+
+const stats = [
+  { big: '15 sec', small: 'Average lead response' },
+  { big: '24/7', small: 'Never misses a lead' },
+  { big: '10+', small: 'Ad platforms' },
+  { big: 'No', small: 'Lock-in contract' },
+];
+
+const faqs = [
+  { q: 'Do I need to be technical to use this?', a: 'No. We set the whole system up for you and walk you through it one-on-one. You give us your business details and we do the building. After that, the AI runs day to day and you check in when you want to.' },
+  { q: 'Will the AI sound robotic to my customers?', a: 'No. The conversations are natural and tuned to your brand voice. Most people do not realise they are talking to an AI. If a question comes up that needs a human, it hands over to you cleanly.' },
+  { q: 'We already get business from referrals. Why would we need this?', a: 'Referrals are a great sign your customers love you, but you cannot control when they happen. This adds a predictable pipeline alongside them, so a quiet month is not left to chance.' },
+  { q: 'We have tried ads before and they did not work. What is different?', a: 'Most ad failures come down to weak targeting, weak creative, or no fast follow-up. The AI tests and optimises the first two automatically, and the AI Sales Agent fixes the third by responding in seconds so leads never go cold.' },
+  { q: 'How long until we are live?', a: 'Around 10 working days from sign-up to live, including setup, training your AI on your business, and testing.' },
+  { q: 'What does it cost?', a: 'Plans start at $197/mo with a $197 one-off setup, billed from the day you go live. No lock-in, no cancellation fees. <a class="text-lm-purple underline" href="/pricing">See full pricing</a>.' },
+];
+
+const schemaJson = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })),
+};
+---
+
+<Layout title={title} description={description} canonical={canonical} keywords={keywords} schemaJson={schemaJson}>
+  <!-- HERO -->
+  <section class="relative overflow-hidden bg-lm-ink">
+    <div class="absolute inset-0 opacity-40" style="background: radial-gradient(60% 80% at 20% 0%, #8E1491 0%, transparent 60%), radial-gradient(50% 70% at 100% 100%, #FF7300 0%, transparent 55%);"></div>
+    <div class="relative max-w-6xl mx-auto px-4 py-16 md:py-24 grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-4">AI customer acquisition for small business</p>
+        <h1 class="text-4xl md:text-6xl font-black text-white leading-[1.05] mb-6">
+          More customers. Without the marketing headache.
+        </h1>
+        <p class="text-lg md:text-xl text-white/85 mb-8 leading-relaxed max-w-xl">
+          LazyMagnet brings in leads with AI-powered ads, then responds to every one of them in seconds, qualifies them, and books them straight into your calendar. Around the clock. While you get on with the work.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 mb-6">
+          <a href={SITE.bookUrl} class="btn-primary">Book a free demo</a>
+          <a href="/ultimate" class="btn-ghost">See how it works</a>
+        </div>
+        <p class="text-sm text-white/60">From $197/mo. No lock-in. Live in about 10 days.</p>
+      </div>
+      <div class="lg:pl-8">
+        <PhoneDemo />
+      </div>
+    </div>
+  </section>
+
+  <Wave from="#1A1024" to="#F6E9F7" />
+
+  <TrustBand stats={stats} />
+
+  <!-- PROBLEM -->
+  <section class="bg-lm-purple-light py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12 max-w-2xl mx-auto">
+        <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-2">Sound familiar?</p>
+        <h2 class="text-3xl md:text-4xl mb-4">Most businesses lose customers they already paid to reach</h2>
+        <p class="text-lg text-lm-slate">Your problem usually is not getting leads. It is what happens after they come in. Here is where the money leaks out.</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-5">
+        <div class="bg-white rounded-2xl p-6 border border-purple-100">
+          <h3 class="text-lg mb-2">Leads go cold before you call back</h3>
+          <p class="text-lm-slate leading-relaxed">Someone fills in a form at 7pm. You see it the next morning. By then they have called three competitors and booked the one who replied first.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-purple-100">
+          <h3 class="text-lg mb-2">Ad spend disappears with nothing to show</h3>
+          <p class="text-lm-slate leading-relaxed">You run ads, see mixed results, and cannot tell which ones are working. So you turn them off and go back to hoping for referrals.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-purple-100">
+          <h3 class="text-lg mb-2">After hours, nobody answers</h3>
+          <p class="text-lm-slate leading-relaxed">A ready-to-buy customer calls on a Friday night and gets voicemail. They do not leave a message. They just call someone else.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-purple-100">
+          <h3 class="text-lg mb-2">Your old database sits there, cold</h3>
+          <p class="text-lm-slate leading-relaxed">Years of past enquiries and customers who never came back. A goldmine doing nothing, because nobody has time to work it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Wave from="#F6E9F7" to="#FFFFFF" />
+
+  <!-- PRODUCTS -->
+  <section class="bg-white py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12 max-w-2xl mx-auto">
+        <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-2">Two halves of one system</p>
+        <h2 class="text-3xl md:text-4xl mb-4">Get the leads. Then actually convert them.</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <a href="/ai-ads" class="group bg-lm-purple-light rounded-3xl p-8 border border-purple-100 hover:border-lm-purple transition-all">
+          <div class="w-12 h-12 rounded-2xl bg-lm-purple text-white flex items-center justify-center text-2xl mb-5">📣</div>
+          <h3 class="text-2xl mb-3 group-hover:text-lm-purple transition-colors">AI Ads</h3>
+          <p class="text-lm-slate leading-relaxed mb-5">The AI creates your ad images, video and copy, publishes them across Google, Facebook, Instagram and more, then tests and shifts budget to whatever is working. You stay in control. We set you up and train you.</p>
+          <span class="text-lm-purple font-extrabold">Explore AI Ads →</span>
+        </a>
+        <a href="/ai-sales-agent" class="group bg-lm-ink rounded-3xl p-8 border border-lm-ink hover:ring-2 hover:ring-lm-orange transition-all">
+          <div class="w-12 h-12 rounded-2xl bg-lm-orange text-white flex items-center justify-center text-2xl mb-5">💬</div>
+          <h3 class="text-2xl mb-3 text-white">AI Sales Agent</h3>
+          <p class="text-white/80 leading-relaxed mb-5">The moment a lead comes in, it replies in seconds. It answers questions, qualifies them, handles objections and books them into your calendar, in a natural conversation. Built for you, trained on your business, running 24/7.</p>
+          <span class="text-lm-orange font-extrabold">Explore the AI Sales Agent →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE SYSTEM -->
+  <section class="bg-white pb-16 md:pb-24">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="bg-gradient-to-br from-lm-purple to-lm-purple-dark rounded-3xl p-8 md:p-12 text-white">
+        <div class="text-center mb-10">
+          <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-2">Put together</p>
+          <h2 class="text-3xl md:text-4xl text-white mb-3">From ad click to booked meeting. No hands.</h2>
+          <p class="text-white/80 max-w-2xl mx-auto">You show up to a call with a warm, pre-qualified customer. Not a cold lead you have to chase.</p>
+        </div>
+        <div class="grid md:grid-cols-4 gap-4 text-center">
+          {[
+            { n: '1', t: 'Ad brings them in', d: 'AI ads find the right people and get them to raise their hand.' },
+            { n: '2', t: 'AI replies in seconds', d: 'Before they contact a competitor. Text or chat, instantly.' },
+            { n: '3', t: 'Qualifies and books', d: 'A natural conversation that ends in a booked time.' },
+            { n: '4', t: 'You show up warm', d: 'They already know you and have agreed to talk.' },
+          ].map((s) => (
+            <div class="bg-white/10 rounded-2xl p-5">
+              <div class="w-9 h-9 rounded-full bg-lm-orange text-white font-black flex items-center justify-center mx-auto mb-3">{s.n}</div>
+              <h3 class="text-base text-white mb-1.5">{s.t}</h3>
+              <p class="text-sm text-white/75 leading-snug">{s.d}</p>
+            </div>
+          ))}
+        </div>
+        <div class="text-center mt-10">
+          <a href="/ultimate" class="btn-primary">See the full system</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Wave from="#FFFFFF" to="#1A1024" />
+
+  <!-- SOCIAL PROOF -->
+  <section class="bg-lm-ink text-white py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-2">Real results</p>
+        <h2 class="text-3xl md:text-4xl text-white">What it looks like when it is working</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-7">
+          <p class="text-4xl font-black text-lm-orange mb-2">+300%</p>
+          <p class="font-bold text-white mb-2">Online bookings</p>
+          <p class="text-sm text-white/70 leading-relaxed">A physiotherapy clinic was missing 30% of calls. With the AI Sales Agent and a database reactivation campaign, every missed call got followed up within 15 seconds.</p>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-7">
+          <p class="text-4xl font-black text-lm-orange mb-2">$100k</p>
+          <p class="font-bold text-white mb-2">New orders in 18 days</p>
+          <p class="text-sm text-white/70 leading-relaxed">A home renovation business ran the full system. 50% more sales appointments, and admin time cut by a third.</p>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-7">
+          <p class="text-4xl font-black text-lm-orange mb-2">-50%</p>
+          <p class="font-bold text-white mb-2">Cost per sale</p>
+          <p class="text-sm text-white/70 leading-relaxed">An e-commerce skincare brand had inconsistent ad performance. AI Ads across Facebook, Google and Instagram halved their cost per sale.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Wave from="#1A1024" to="#FFFFFF" />
+
+  <!-- INDUSTRIES -->
+  <section class="bg-white py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-10 max-w-2xl mx-auto">
+        <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-2">Built for your world</p>
+        <h2 class="text-3xl md:text-4xl mb-3">Set up for how your industry actually wins</h2>
+        <p class="text-lm-slate">The system is the same. The strategy is tuned to how your customers search, decide and buy.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        {INDUSTRIES.map((ind) => (
+          <a href={`/industries/${ind.slug}`} class="group bg-lm-purple-light rounded-2xl p-5 border border-purple-100 hover:border-lm-purple transition-all text-center">
+            <p class="font-extrabold text-lm-ink group-hover:text-lm-purple transition-colors leading-tight">{ind.label}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING ANCHOR -->
+  <section class="bg-white pb-16 md:pb-20">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="bg-lm-purple-light rounded-3xl p-8 md:p-10 border border-purple-100 text-center">
+        <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-2">Simple pricing</p>
+        <h2 class="text-3xl md:text-4xl mb-3">Start from $197/mo</h2>
+        <p class="text-lm-slate max-w-xl mx-auto mb-6">A $197 one-off setup and $197/mo, billed from the day you go live. No lock-in. Upgrade the moment you outgrow it.</p>
+        <a href="/pricing" class="btn-purple">See what is included</a>
+      </div>
+    </div>
+  </section>
+
+  <FAQ items={faqs} />
+
+  <ContactForm sourcePage="homepage" />
+
+  <FinalCTA />
+</Layout>
