@@ -13,5 +13,5 @@
     }
   ],
   "utilityPages": ["/about", "/contact", "/privacy", "/terms", "/get-started"],
-  "cro": { "landingPages": ["/get-started"] }
+  "cro": { "landingPages": ["/get-started", "/lp/ultimate"] }
 }

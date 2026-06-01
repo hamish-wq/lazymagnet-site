@@ -1,0 +1,117 @@
+---
+import LandingLayout from '../../layouts/LandingLayout.astro';
+import FlowDemo from '../../components/FlowDemo.astro';
+import { SITE } from '../../lib/site';
+
+const title = 'Stop Losing Leads | LazyMagnet';
+const description = 'More leads in, every one answered in seconds and booked for you. LazyMagnet runs your ads and your follow-up as one system. Book a free discovery call.';
+const canonical = `${SITE.domain}/lp/ultimate`;
+
+const problems = [
+  'Leads come in and sit for hours before anyone replies, by then they have booked someone else.',
+  'Your pipeline is feast or famine, with no reliable flow of new enquiries.',
+  'Form fills and DMs pile up overnight and on weekends with no one to catch them.',
+];
+const steps = [
+  { t: 'We bring the leads in', d: 'AI Ads put your offer in front of the right people across Google, Facebook and Instagram, and shift budget to whatever works.' },
+  { t: 'Every lead answered in seconds', d: 'The moment someone enquires, your AI Sales Agent replies, qualifies them and answers their questions, day or night.' },
+  { t: 'Booked into your calendar', d: 'It offers real times and locks the booking in conversation. You wake up to a fuller diary, not a list of missed leads.' },
+];
+---
+
+<LandingLayout title={title} description={description} canonical={canonical}>
+  <!-- HERO -->
+  <section class="relative overflow-hidden bg-lm-ink">
+    <div class="absolute inset-0 opacity-40" style="background: radial-gradient(55% 80% at 80% 0%, #8E1491 0%, transparent 60%), radial-gradient(50% 70% at 0% 100%, #FF7300 0%, transparent 55%);"></div>
+    <div class="relative max-w-5xl mx-auto px-4 py-16 md:py-20 grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <h1 class="text-4xl md:text-5xl font-black text-white leading-[1.05] mb-5">More leads in. Every one answered in seconds. Booked while you sleep.</h1>
+        <p class="text-lg text-white/85 mb-7 leading-relaxed">LazyMagnet runs your ads and your follow-up as one system, so you stop losing leads to slow replies and a quiet pipeline.</p>
+        <a href="#book" class="btn-primary">Book a free discovery call</a>
+        <p class="text-white/60 text-sm mt-4">No lock-in. From $197/mo.</p>
+      </div>
+      <div class="lg:pl-8"><FlowDemo /></div>
+    </div>
+  </section>
+
+  <!-- PROBLEM (PAS) -->
+  <section class="bg-lm-purple-light py-14 md:py-16">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-2xl md:text-3xl mb-6">If any of this sounds familiar, you are leaking leads</h2>
+      <ul class="space-y-3 text-left">
+        {problems.map((p) => (
+          <li class="flex gap-3 bg-white rounded-2xl px-5 py-4 border border-purple-100">
+            <span class="text-lm-orange font-black shrink-0">→</span>
+            <span class="text-lm-slate leading-relaxed">{p}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="bg-white py-14 md:py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-10 max-w-2xl mx-auto">
+        <h2 class="text-3xl md:text-4xl">Two problems, one system</h2>
+        <p class="text-lm-slate mt-3">You need more leads <em>and</em> faster follow-up. LazyMagnet does both.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-5">
+        {steps.map((s, i) => (
+          <div class="bg-lm-purple-light rounded-2xl p-6 border border-purple-100">
+            <div class="w-10 h-10 rounded-full bg-lm-purple text-white font-black flex items-center justify-center mb-3">{i + 1}</div>
+            <h3 class="text-lg mb-2">{s.t}</h3>
+            <p class="text-sm text-lm-slate leading-relaxed">{s.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIMARY OFFER: book a call -->
+  <section id="book" class="bg-lm-ink py-16 md:py-20">
+    <div class="max-w-xl mx-auto px-4">
+      <div class="text-center mb-8">
+        <h2 class="text-3xl md:text-4xl text-white mb-3">Book a free discovery call</h2>
+        <p class="text-white/80">15 minutes. We will show you where your leads are leaking and how the system would plug it for your business.</p>
+      </div>
+      <form action="https://services.leadconnectorhq.com/hooks/REPLACE_WITH_GHL_INBOUND_WEBHOOK" method="POST" class="bg-white rounded-2xl p-6 md:p-8 space-y-4">
+        <input type="hidden" name="source_page" value="lp-ultimate-call" />
+        <input type="hidden" name="utm_source" id="utm_source" />
+        <input type="hidden" name="utm_medium" id="utm_medium" />
+        <input type="hidden" name="utm_campaign" id="utm_campaign" />
+        <input type="hidden" name="gclid" id="gclid" />
+        <input type="hidden" name="fbclid" id="fbclid" />
+        <div class="grid sm:grid-cols-2 gap-4">
+          <label class="block"><span class="text-sm font-bold text-lm-ink mb-1.5 block">Your name</span><input type="text" name="full_name" required class="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:border-lm-purple focus:ring-2 focus:ring-lm-purple/20" /></label>
+          <label class="block"><span class="text-sm font-bold text-lm-ink mb-1.5 block">Phone</span><input type="tel" name="phone" required inputmode="tel" class="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:border-lm-purple focus:ring-2 focus:ring-lm-purple/20" /></label>
+        </div>
+        <label class="block"><span class="text-sm font-bold text-lm-ink mb-1.5 block">Email</span><input type="email" name="email" required class="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:border-lm-purple focus:ring-2 focus:ring-lm-purple/20" /></label>
+        <label class="block"><span class="text-sm font-bold text-lm-ink mb-1.5 block">Website <span class="font-normal text-slate-400">(optional)</span></span><input type="url" name="website" class="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:border-lm-purple focus:ring-2 focus:ring-lm-purple/20" /></label>
+        <button type="submit" class="btn-primary w-full">Book my discovery call</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- SECONDARY: lead-magnet fallback -->
+  <section class="bg-lm-orange/10 py-12 md:py-14 border-t border-lm-orange/20">
+    <div class="max-w-xl mx-auto px-4 text-center">
+      <h2 class="text-2xl md:text-3xl mb-2">Not ready to talk yet?</h2>
+      <p class="text-lm-slate mb-6">Get a free lead-leak audit. We review your website, CTAs, booking forms and follow-up speed, and send you a short report on where you are losing leads and what to fix first.</p>
+      <form action="https://services.leadconnectorhq.com/hooks/REPLACE_WITH_GHL_INBOUND_WEBHOOK" method="POST" class="bg-white rounded-2xl p-6 space-y-4 text-left border border-purple-100">
+        <input type="hidden" name="source_page" value="lp-ultimate-audit" />
+        <label class="block"><span class="text-sm font-bold text-lm-ink mb-1.5 block">Your website</span><input type="url" name="website" required placeholder="yourbusiness.co.nz" class="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:border-lm-purple focus:ring-2 focus:ring-lm-purple/20" /></label>
+        <label class="block"><span class="text-sm font-bold text-lm-ink mb-1.5 block">Where do we send it?</span><input type="email" name="email" required class="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:border-lm-purple focus:ring-2 focus:ring-lm-purple/20" /></label>
+        <button type="submit" class="btn-purple w-full">Send my free audit</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    ['utm_source', 'utm_medium', 'utm_campaign', 'gclid', 'fbclid'].forEach((k) => {
+      const el = document.getElementById(k);
+      if (el && params.get(k)) (el as HTMLInputElement).value = params.get(k)!;
+    });
+  </script>
+</LandingLayout>
