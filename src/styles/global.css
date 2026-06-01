@@ -33,7 +33,7 @@
     align-items: center;
     justify-content: center;
     padding: 0.875rem 2rem;
-    background: var(--color-lm-orange);
+    background: #C2410C;
     color: white;
     font-weight: 800;
     border-radius: var(--radius-pill);
