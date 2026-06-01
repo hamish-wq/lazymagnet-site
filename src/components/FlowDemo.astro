@@ -1,0 +1,32 @@
+---
+// Self-contained mockup for Ultimate: the two products working as one system,
+// ad click through to booked meeting. No image asset, no brand names.
+const steps = [
+  { icon: '📣', t: 'AI Ads find your customer', d: 'The right person sees your ad and clicks.' },
+  { icon: '💬', t: 'The agent replies in seconds', d: 'It answers, qualifies, and offers real times.' },
+  { icon: '📅', t: 'Booked into your calendar', d: 'No one lifted a finger. The job is in the diary.' },
+];
+---
+<div class="relative mx-auto w-full max-w-[360px]">
+  <div class="bg-lm-ink rounded-3xl p-5 shadow-2xl ring-1 ring-white/10">
+    <div class="relative">
+      <!-- connecting line -->
+      <div class="absolute left-[22px] top-6 bottom-6 w-px bg-white/15"></div>
+      <div class="space-y-3">
+        {steps.map((s, i) => (
+          <div class="relative flex gap-3.5 items-start">
+            <div class="z-10 w-11 h-11 shrink-0 rounded-full bg-lm-purple text-white flex items-center justify-center text-lg ring-4 ring-lm-ink">{s.icon}</div>
+            <div class="bg-white rounded-2xl p-3.5 flex-1">
+              <p class="font-bold text-sm text-lm-ink leading-tight">{s.t}</p>
+              <p class="text-[12px] text-lm-slate mt-1 leading-snug">{s.d}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div class="mt-4 bg-lm-orange/15 border border-lm-orange/30 rounded-xl px-3 py-2 text-center">
+      <span class="text-[12px] font-bold text-white">Ad click to booked meeting, hands-free</span>
+    </div>
+  </div>
+  <p class="text-center text-sm text-white/70 mt-4 font-semibold">Two products, one system, working together.</p>
+</div>

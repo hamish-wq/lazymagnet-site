@@ -5,6 +5,7 @@ import TrustBand from '../components/TrustBand.astro';
 import ContactForm from '../components/ContactForm.astro';
 import FinalCTA from '../components/FinalCTA.astro';
 import FAQ from '../components/FAQ.astro';
+import AdsDemo from '../components/AdsDemo.astro';
 import { SITE } from '../lib/site';
 
 const title = 'AI Ads | Create, Launch and Optimise Ads | LazyMagnet';
@@ -37,18 +38,21 @@ const schemaJson = [
 <Layout title={title} description={description} canonical={canonical} keywords={keywords} schemaJson={schemaJson}>
   <section class="relative overflow-hidden bg-lm-ink">
     <div class="absolute inset-0 opacity-40" style="background: radial-gradient(60% 80% at 15% 0%, #8E1491 0%, transparent 60%), radial-gradient(50% 70% at 100% 100%, #FF7300 0%, transparent 55%);"></div>
-    <div class="relative max-w-5xl mx-auto px-4 py-16 md:py-24 text-center">
-      <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-4">AI Ads</p>
-      <h1 class="text-4xl md:text-6xl font-black text-white leading-[1.05] mb-6 max-w-3xl mx-auto">
-        Ads that create, launch and improve themselves
-      </h1>
-      <p class="text-lg md:text-xl text-white/85 mb-8 leading-relaxed max-w-2xl mx-auto">
-        Describe your customer and your offer. The AI builds the ads, publishes them across Google, Facebook, Instagram and more, then tests and shifts your budget to whatever is bringing in the best leads. You stay in full control.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-3 justify-center">
-        <a href={SITE.bookUrl} class="btn-primary">Book a free demo</a>
-        <a href="/pricing" class="btn-ghost">See pricing</a>
+    <div class="relative max-w-6xl mx-auto px-4 py-16 md:py-24 grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-4">AI Ads</p>
+        <h1 class="text-4xl md:text-6xl font-black text-white leading-[1.05] mb-6">
+          Ads that create, launch and improve themselves
+        </h1>
+        <p class="text-lg md:text-xl text-white/85 mb-8 leading-relaxed max-w-xl">
+          Describe your customer and your offer. The AI builds the ads, publishes them across Google, Facebook, Instagram and more, then tests and shifts your budget to whatever is bringing in the best leads. You stay in full control.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href={SITE.bookUrl} class="btn-primary">Book a free demo</a>
+          <a href="/pricing" class="btn-ghost">See pricing</a>
+        </div>
       </div>
+      <div class="lg:pl-8"><AdsDemo /></div>
     </div>
   </section>
 

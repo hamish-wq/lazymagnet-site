@@ -4,6 +4,7 @@ import Wave from '../components/Wave.astro';
 import ContactForm from '../components/ContactForm.astro';
 import FinalCTA from '../components/FinalCTA.astro';
 import FAQ from '../components/FAQ.astro';
+import FlowDemo from '../components/FlowDemo.astro';
 import { SITE } from '../lib/site';
 
 const title = 'The Full System | AI Ads + AI Sales Agent | LazyMagnet';
@@ -24,15 +25,18 @@ const schemaJson = { '@context': 'https://schema.org', '@type': 'FAQPage', mainE
 <Layout title={title} description={description} canonical={canonical} keywords={keywords} schemaJson={schemaJson}>
   <section class="relative overflow-hidden bg-lm-ink">
     <div class="absolute inset-0 opacity-40" style="background: radial-gradient(60% 80% at 50% 0%, #8E1491 0%, transparent 60%), radial-gradient(60% 70% at 50% 120%, #FF7300 0%, transparent 55%);"></div>
-    <div class="relative max-w-5xl mx-auto px-4 py-16 md:py-24 text-center">
-      <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-4">The full system</p>
-      <h1 class="text-4xl md:text-6xl font-black text-white leading-[1.05] mb-6 max-w-3xl mx-auto">
-        From ad click to booked meeting. No one lifts a finger.
-      </h1>
-      <p class="text-lg md:text-xl text-white/85 mb-8 leading-relaxed max-w-2xl mx-auto">
-        AI Ads bring the leads in. The AI Sales Agent catches every one, qualifies them and books them. Put together, they turn a stream of strangers into a calendar full of warm, ready customers.
-      </p>
-      <a href={SITE.bookUrl} class="btn-primary">Book a free demo</a>
+    <div class="relative max-w-6xl mx-auto px-4 py-16 md:py-24 grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-4">The full system</p>
+        <h1 class="text-4xl md:text-6xl font-black text-white leading-[1.05] mb-6">
+          From ad click to booked meeting. No one lifts a finger.
+        </h1>
+        <p class="text-lg md:text-xl text-white/85 mb-8 leading-relaxed max-w-xl">
+          AI Ads bring the leads in. The AI Sales Agent catches every one, qualifies them and books them. Put together, they turn a stream of strangers into a calendar full of warm, ready customers.
+        </p>
+        <a href={SITE.bookUrl} class="btn-primary">Book a free demo</a>
+      </div>
+      <div class="lg:pl-8"><FlowDemo /></div>
     </div>
   </section>
 
