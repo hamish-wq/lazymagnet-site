@@ -1,6 +1,8 @@
 ---
 import LandingLayout from '../../layouts/LandingLayout.astro';
 import FlowDemo from '../../components/FlowDemo.astro';
+import AdsDemo from '../../components/AdsDemo.astro';
+import PhoneDemo from '../../components/PhoneDemo.astro';
 import { SITE } from '../../lib/site';
 
 const title = 'Stop Losing Leads | LazyMagnet';
@@ -49,21 +51,32 @@ const steps = [
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
+  <!-- HOW IT WORKS: two alternating visual bands (the two halves of the system) -->
   <section class="bg-white py-14 md:py-20">
     <div class="max-w-5xl mx-auto px-4">
-      <div class="text-center mb-10 max-w-2xl mx-auto">
+      <div class="text-center mb-12 max-w-2xl mx-auto">
         <h2 class="text-3xl md:text-4xl">Two problems, one system</h2>
         <p class="text-lm-slate mt-3">You need more leads <em>and</em> faster follow-up. LazyMagnet does both.</p>
       </div>
-      <div class="grid md:grid-cols-3 gap-5">
-        {steps.map((s, i) => (
-          <div class="bg-lm-purple-light rounded-2xl p-6 border border-purple-100">
-            <div class="w-10 h-10 rounded-full bg-lm-purple text-white font-black flex items-center justify-center mb-3">{i + 1}</div>
-            <h3 class="text-lg mb-2">{s.t}</h3>
-            <p class="text-sm text-lm-slate leading-relaxed">{s.d}</p>
-          </div>
-        ))}
+
+      <!-- band 1: more leads (AdsDemo) -->
+      <div class="grid lg:grid-cols-2 gap-10 items-center mb-16">
+        <div class="order-2 lg:order-1">
+          <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-2">1 · More leads in</p>
+          <h3 class="text-2xl md:text-3xl mb-4">Ads that find your customers and keep getting better</h3>
+          <p class="text-lm-slate leading-relaxed">AI Ads put your offer in front of the right people across Google, Facebook and Instagram, test variations, and shift budget to whatever brings in the best leads. No agency retainer, no guesswork.</p>
+        </div>
+        <div class="order-1 lg:order-2"><AdsDemo /></div>
+      </div>
+
+      <!-- band 2: speed to lead (PhoneDemo) -->
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div><PhoneDemo /></div>
+        <div>
+          <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-2">2 · Every lead answered, and booked</p>
+          <h3 class="text-2xl md:text-3xl mb-4">The agent replies in seconds and books them in</h3>
+          <p class="text-lm-slate leading-relaxed">The moment a lead comes in, your AI Sales Agent answers, qualifies them and offers real times, day or night. You wake up to a fuller calendar instead of a list of leads who went cold.</p>
+        </div>
       </div>
     </div>
   </section>
