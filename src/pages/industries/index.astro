@@ -6,7 +6,7 @@ import { SITE } from '../../lib/site';
 import { INDUSTRY_DATA } from '../../lib/industries-data';
 
 const title = 'Industries We Work With | LazyMagnet';
-const description = 'LazyMagnet is tuned to how your industry actually wins customers: home services, health and wellness, professional services, e-commerce and franchise. Same system, strategy that fits your world.';
+const description = 'LazyMagnet tunes to how your industry wins customers: home services, health, professional services, e-commerce and franchise. From $197/mo.';
 const canonical = `${SITE.domain}/industries`;
 const list = Object.values(INDUSTRY_DATA);
 ---
@@ -23,7 +23,14 @@ const list = Object.values(INDUSTRY_DATA);
 
   <Wave from="#1A1024" to="#FFFFFF" />
 
-  <section class="bg-white py-16 md:py-24">
+  <section class="bg-white pt-16 md:pt-24 pb-8">
+    <div class="max-w-3xl mx-auto px-4 space-y-5 text-lg text-lm-slate leading-relaxed">
+      <p>Every business gets customers in its own way. A burst pipe is an emergency that gets booked in minutes; a new accountant is a considered choice made over weeks; an online store lives or dies on cost per sale. The same generic marketing cannot serve all of them well.</p>
+      <p>LazyMagnet runs on one system: AI ads that bring the right people in, and a 24/7 AI Sales Agent that replies in seconds, qualifies and books. What changes by industry is the strategy around it: which channels matter, how fast the response has to be, what the agent asks, and how we win back the customers you already have. Find your world below to see how it fits.</p>
+    </div>
+  </section>
+
+  <section class="bg-white pb-16 md:pb-24">
     <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-6">
       {list.map((ind) => (
         <a href={`/industries/${ind.slug}`} class="group bg-lm-purple-light rounded-3xl p-8 border border-purple-100 hover:border-lm-purple transition-all">

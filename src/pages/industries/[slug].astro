@@ -15,6 +15,7 @@ const { slug } = Astro.params;
 const ind = INDUSTRY_DATA[slug as string];
 const body = INDUSTRY_BODY[slug as string] ?? [];
 const canonical = `${SITE.domain}/industries/${ind.slug}`;
+const siblings = Object.values(INDUSTRY_DATA).filter((x) => x.slug !== ind.slug);
 
 const schemaJson = [
   {
@@ -103,6 +104,25 @@ const schemaJson = [
       </div>
     </section>
   )}
+
+  <!-- RELATED: link back to the industries hub + sibling verticals (cluster interlinking) -->
+  <section class="bg-lm-purple-light py-16 md:py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-10 max-w-2xl mx-auto">
+        <p class="text-lm-orange text-sm font-extrabold uppercase tracking-widest mb-2">Other industries</p>
+        <h2 class="text-3xl md:text-4xl mb-3">Same system, tuned to a different world</h2>
+        <p class="text-lm-slate">See how LazyMagnet works for other types of business, or browse <a href="/industries" class="text-lm-purple font-extrabold hover:underline">all the industries we work with</a>.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {siblings.map((sib) => (
+          <a href={`/industries/${sib.slug}`} class="group bg-white rounded-2xl p-5 border border-purple-100 hover:border-lm-purple transition-all flex items-center justify-between gap-3">
+            <span class="font-extrabold text-lm-ink group-hover:text-lm-purple transition-colors leading-snug">{sib.label}</span>
+            <span class="text-lm-purple font-extrabold shrink-0">→</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
 
   <ContactForm sourcePage={`industry-${ind.slug}`} eyebrow="Got a question for your situation?" heading="Ask us about your business" subhead="Tell us what you do and where. We will tell you straight whether we can help." />
   <FinalCTA heading={ind.ctaHeading} body={ind.ctaBody} />

@@ -1,0 +1,17 @@
+{
+  "_comment": "Declarative test spec. audit.mjs reads it for cluster integrity + utility exemptions. The industries hub is the pillar; each vertical page is a spoke, interlinked.",
+  "clusters": [
+    {
+      "pillar": "/industries",
+      "spokes": [
+        { "url": "/industries/home-services", "keyword": "marketing for home services and trades" },
+        { "url": "/industries/health-wellness", "keyword": "marketing for clinics and gyms" },
+        { "url": "/industries/professional-services", "keyword": "marketing for professional services" },
+        { "url": "/industries/ecommerce", "keyword": "ai ads for ecommerce" },
+        { "url": "/industries/franchise", "keyword": "marketing for franchises" }
+      ]
+    }
+  ],
+  "utilityPages": ["/about", "/contact", "/privacy", "/terms", "/get-started"],
+  "cro": { "landingPages": ["/get-started"] }
+}
